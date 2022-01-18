@@ -13,25 +13,22 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "vimex/storage-utils-bundle": "^0.1",
-        "vimex/batch": "^0.1",
-        "symfony/config": "^3.4||^4.0",
-        "symfony/console": "^3.4||^4.0",
-        "symfony/dependency-injection": "^3.4||^4.0",
-        "symfony/event-dispatcher": "^3.4||^4.0",
-        "symfony/http-kernel": "^3.4||^4.0",
-        "symfony/translation": "^3.4||^4.0",
-        "symfony/process": "^3.4||^4.0",
-        "symfony/security": "^3.4||^4.0",
-        "symfony/validator": "^3.4||^4.0",
-        "symfony/framework-bundle": "^3.4||^4.0",
-        "doctrine/orm": "^2.5",
-        "monolog/monolog": "^1.22|^2.3",
-        "twig/extensions": "^1.0",
-        "symfony/swiftmailer-bundle": "^2.6.4||^3.2.2"
-    },
-    "require-dev": {
-        "phpspec/phpspec": "3.0.0"
+        "vimex/storage-utils-bundle": "dev-symfony-5",
+        "vimex/batch": "dev-symfony-5",
+        "symfony/config": "^5.4",
+        "symfony/console": "^5.4",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/event-dispatcher": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "symfony/translation": "^5.4",
+        "symfony/process": "^5.4",
+        "symfony/security-bundle": "^5.4",
+        "symfony/validator": "^5.4",
+        "symfony/framework-bundle": "^5.4",
+        "doctrine/orm": "*",
+        "monolog/monolog": "*",
+        "twig/extensions": "*",
+        "symfony/swiftmailer-bundle": "*"
     },
     "config": {
         "bin-dir": "bin"
@@ -39,5 +36,19 @@
     "autoload": {
         "psr-4": { "Akeneo\\Bundle\\BatchBundle\\": "" }
     },
-    "minimum-stability": "stable"
+    "repositories": [
+        {
+            "url": "https://github.com/virgileb/StorageUtilsBundle",
+            "type": "git"
+        },
+        {
+            "url": "https://github.com/virgileb/StorageUtils",
+            "type": "git"
+        },
+        {
+            "url": "https://github.com/virgileb/Batch",
+            "type": "git"
+        }
+    ],
+    "minimum-stability": "dev"
 }
