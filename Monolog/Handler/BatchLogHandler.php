@@ -41,6 +41,7 @@ class BatchLogHandler extends StreamHandler
         $this->filePermission = $filePermission;
         $this->useLocking = $useLocking;
         $this->logDir = $logDir;
+        $this->streamChunkSize = static::DEFAULT_CHUNK_SIZE;
     }
 
     /**
@@ -83,7 +84,7 @@ class BatchLogHandler extends StreamHandler
     /**
      * {@inheritdoc}
      */
-    public function write(array $record)
+    public function write(array $record):void
     {
         if (!$this->url) {
             $this->url = $this->getRealPath($this->generateLogFilename());

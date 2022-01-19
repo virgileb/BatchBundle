@@ -1,8 +1,7 @@
+parameters:
+    akeneo_storage_utils.remover.base.class:                  Akeneo\Bundle\StorageUtilsBundle\Doctrine\Common\Remover\BaseRemover
+    akeneo_storage_utils.remover.base_options_resolver.class: Akeneo\Bundle\StorageUtilsBundle\Doctrine\Common\Remover\BaseRemovingOptionsResolver
+
 services:
-    akeneo_batch.remover.job_instance:
-        class: '%akeneo_storage_utils.remover.base.class%'
-        public: true
-        arguments:
-            - '@doctrine.orm.entity_manager'
-            - '@event_dispatcher'
-            - '%akeneo_batch.entity.job_instance.class%'
+    akeneo_storage_utils.remover.base_options_resolver:
+        class: '%akeneo_storage_utils.remover.base_options_resolver.class%'

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Akeneo\Bundle\BatchBundle\EntityManager;
 
+use Doctrine\DBAL\Exception as DBALException;
 use Doctrine\ORM\Decorator\EntityManagerDecorator;
 
 /**
@@ -41,11 +42,13 @@ class PersistedConnectionEntityManager extends EntityManagerDecorator
     /**
      * Ping the Server, if the connection is closed, it re-opens it automatically.
      */
-    private function checkConnection(): void
+    public function checkConnection(): void
     {
         $connection = $this->wrapped->getConnection();
 
-        if (false === $connection->ping()) {
+        try {
+            $connection->executeQuery($connection->getDatabasePlatform()->getDummySelectSQL());
+        } catch (DBALException $e) {
             $connection->close();
             $connection->connect();
         }
